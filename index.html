@@ -11,16 +11,9 @@
 <!-- Font Awesome for Icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-<!-- AOS Library for Scroll Animations -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
 <style>
-/* BASE RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* RESET & BASE */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
@@ -51,12 +44,9 @@ nav a {
     margin-left: 24px;
     text-decoration: none;
     font-weight: 500;
-    position: relative;
     transition: color 0.3s;
 }
-nav a:hover {
-    color: #82b1ff;
-}
+nav a:hover { color: #82b1ff; }
 
 /* HERO */
 .hero {
@@ -68,19 +58,12 @@ nav a:hover {
 }
 .hero-text {
     display: inline-block;
-    background: rgba(0,0,0,0.35); /* light overlay for readability */
+    background: rgba(0,0,0,0.3);
     padding: 30px 40px;
     border-radius: 10px;
 }
-.hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-.hero p {
-    font-size: 20px;
-    margin-bottom: 40px;
-}
+.hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 20px; }
+.hero p { font-size: 20px; margin-bottom: 40px; }
 .btn-primary {
     display: inline-block;
     padding: 14px 40px;
@@ -91,10 +74,7 @@ nav a:hover {
     border-radius: 6px;
     transition: background 0.3s, color 0.3s;
 }
-.btn-primary:hover {
-    background-color: #e6c200;
-    color: #000;
-}
+.btn-primary:hover { background-color: #e6c200; color: #000; }
 
 /* SECTIONS */
 section {
@@ -102,23 +82,14 @@ section {
     max-width: 1200px;
     margin: auto;
     scroll-margin-top: 100px;
-    opacity: 0; /* for fade-in animation */
+    opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-section.show {
-    opacity: 1;
-    transform: translateY(0);
-}
+section.show { opacity: 1; transform: translateY(0); }
+h2.section-title { font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-weight: 700; }
 
-h2.section-title {
-    font-size: 32px;
-    color: #0a4da2;
-    margin-bottom: 28px;
-    font-weight: 700;
-}
-
-/* GRID CARDS */
+/* GRID CARDS WITH IMAGES */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -126,7 +97,7 @@ h2.section-title {
 }
 .card {
     background: #f7f8fa;
-    padding: 24px 20px;
+    padding: 20px;
     border-radius: 10px;
     border: 1px solid #dee2e6;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -136,28 +107,23 @@ h2.section-title {
     transform: translateY(-6px);
     box-shadow: 0 8px 22px rgba(0,0,0,0.1);
 }
-.card i {
-    font-size: 36px;
-    color: #0a4da2;
-    margin-bottom: 10px;
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
 }
 .card h3 {
-    margin-top: 12px;
+    margin-top: 10px;
     font-weight: 600;
     color: #0a4da2;
 }
 
 /* CONTACT */
-.contact-center {
-    text-align: center;
-}
-.contact-center p {
-    margin-top: 12px;
-}
-.contact-center i {
-    color: #0a4da2;
-    margin-right: 10px;
-}
+.contact-center { text-align: center; }
+.contact-center p { margin-top: 12px; }
+.contact-center i { color: #0a4da2; margin-right: 10px; }
 .contact-center .btn-secondary {
     margin-top: 24px;
     padding: 12px 30px;
@@ -168,18 +134,10 @@ h2.section-title {
     font-weight: 500;
     transition: background 0.3s;
 }
-.contact-center .btn-secondary:hover {
-    background-color: #083f82;
-}
+.contact-center .btn-secondary:hover { background-color: #083f82; }
 
 /* FOOTER */
-footer {
-    background-color: #0a4da2;
-    color: white;
-    text-align: center;
-    padding: 24px;
-    font-size: 14px;
-}
+footer { background-color: #0a4da2; color: white; text-align: center; padding: 24px; font-size: 14px; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -222,17 +180,17 @@ footer {
     <h2 class="section-title">Product Categories</h2>
     <div class="grid-cards">
         <div class="card">
-            <i class="fas fa-stethoscope"></i>
+            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Diagnostic & Monitoring Systems">
             <h3>Diagnostic & Monitoring Systems</h3>
             <p>High‑precision imaging and patient monitoring systems for clinical environments.</p>
         </div>
         <div class="card">
-            <i class="fas fa-syringe"></i>
+            <img src="https://images.unsplash.com/photo-1580281658625-0f5f1f73e9cf?auto=format&fit=crop&w=400&q=80" alt="Clinical Tools & Instruments">
             <h3>Clinical Tools & Instruments</h3>
             <p>Professional surgical instruments and procedural devices with regulatory certification.</p>
         </div>
         <div class="card">
-            <i class="fas fa-box-medical"></i>
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=400&q=80" alt="Hospital & Support Supplies">
             <h3>Hospital & Support Supplies</h3>
             <p>Consumables, PPE, and support devices tailored to healthcare facility needs.</p>
         </div>
@@ -263,7 +221,7 @@ footer {
     © 2026 GlobalMed Trade. All Rights Reserved.
 </footer>
 
-<!-- Scroll animation script -->
+<!-- Scroll Animation -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll("section");
@@ -277,5 +235,6 @@ document.addEventListener("DOMContentLoaded", function() {
     sections.forEach(section => observer.observe(section));
 });
 </script>
+
 </body>
 </html>
