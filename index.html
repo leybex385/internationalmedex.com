@@ -27,7 +27,7 @@ body {
 
 /* HEADER */
 header {
-    background-color: #0b5ed7;
+    background-color: #0b5ed7; /* primary blue */
     color: white;
     padding: 20px 40px;
     display: flex;
@@ -38,12 +38,10 @@ header {
     z-index: 1000;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-
 header h2 {
     font-weight: 700;
     font-size: 24px;
 }
-
 nav a {
     color: white;
     margin-left: 25px;
@@ -52,18 +50,15 @@ nav a {
     position: relative;
     transition: color 0.3s;
 }
-
 nav a:hover {
-    color: #ffd600;
+    color: #d70b5e; /* pink accent */
 }
-
-/* Underline animation */
 nav a::after {
     content: '';
     display: block;
     width: 0;
     height: 2px;
-    background: #ffd600;
+    background: #d70b5e;
     transition: width 0.3s;
 }
 nav a:hover::after {
@@ -92,16 +87,15 @@ nav a:hover::after {
     display: inline-block;
     margin-top: 30px;
     padding: 14px 36px;
-    background: #ffd600;
-    color: #0b5ed7;
+    background: #d70b5e; /* pink accent */
+    color: white;
     text-decoration: none;
     font-weight: 700;
     border-radius: 6px;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s;
 }
 .btn:hover {
-    background: #e6c200;
-    color: #000;
+    background: #b50a4a;
 }
 
 /* SECTIONS */
@@ -111,7 +105,6 @@ section {
     margin: auto;
     scroll-margin-top: 120px; /* sticky header offset */
 }
-
 h2 {
     color: #0b5ed7;
     margin-bottom: 30px;
