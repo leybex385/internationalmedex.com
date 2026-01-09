@@ -6,235 +6,274 @@
 <title>GlobalMed Trade | International Medical Equipment</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 <!-- Font Awesome for Icons -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
-/* RESET & BASE */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* Reset & Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
-    background-color: #fff;
+    background-color: #f9fafc;
+    color: #333;
 }
 
 /* HEADER */
 header {
-    background-color: #0a4da2;
+    background-color: rgba(11, 94, 215, 0.9); /* semi-transparent so hero shows */
     color: white;
-    padding: 18px 50px;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    backdrop-filter: blur(8px);
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-header h1 {
-    font-size: 24px;
+
+header h2 {
     font-weight: 700;
+    font-size: 24px;
 }
+
 nav a {
     color: white;
-    margin-left: 24px;
+    margin-left: 25px;
     text-decoration: none;
     font-weight: 500;
+    position: relative;
     transition: color 0.3s;
 }
-nav a:hover { color: #82b1ff; }
 
-/* HERO */
+nav a:hover {
+    color: #ffd600;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ffd600;
+    transition: width 0.3s;
+}
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO SECTION */
 .hero {
-    background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=90') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     color: white;
-    padding: 160px 20px 140px;
+    padding: 180px 20px 120px 20px;
     text-align: center;
     position: relative;
 }
-.hero-text {
-    display: inline-block;
-    background: rgba(0,0,0,0.3);
-    padding: 30px 40px;
-    border-radius: 10px;
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4); /* dark overlay to make text readable */
 }
-.hero h1 { font-size: 48px; font-weight: 700; margin-bottom: 20px; }
-.hero p { font-size: 20px; margin-bottom: 40px; }
-.btn-primary {
+.hero h1, .hero p, .hero .btn {
+    position: relative; /* above overlay */
+    z-index: 1;
+}
+.hero h1 {
+    font-size: 52px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.hero p {
+    font-size: 22px;
+    max-width: 700px;
+    margin: auto;
+}
+.btn {
     display: inline-block;
-    padding: 14px 40px;
-    font-weight: 600;
-    background-color: #ffd600;
-    color: #0a4da2;
+    margin-top: 30px;
+    padding: 14px 36px;
+    background: #ffd600;
+    color: #0b5ed7;
     text-decoration: none;
+    font-weight: 700;
     border-radius: 6px;
     transition: background 0.3s, color 0.3s;
 }
-.btn-primary:hover { background-color: #e6c200; color: #000; }
+.btn:hover {
+    background: #e6c200;
+    color: #000;
+}
 
 /* SECTIONS */
 section {
-    padding: 80px 50px;
+    padding: 80px 40px;
     max-width: 1200px;
     margin: auto;
-    scroll-margin-top: 100px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    scroll-margin-top: 100px; /* sticky header offset */
 }
-section.show { opacity: 1; transform: translateY(0); }
-h2.section-title { font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-weight: 700; }
+h2.section-title {
+    color: #0b5ed7;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #0b5ed7;
+    display: inline-block;
+    padding-bottom: 5px;
+}
 
-/* GRID CARDS WITH IMAGES */
+/* PRODUCT CARDS */
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 28px;
+    gap: 30px;
 }
 .card {
-    background: #f7f8fa;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
 }
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.2);
 }
 .card img {
     width: 100%;
-    height: 180px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 10px 10px 0 0;
-    margin-bottom: 15px;
 }
 .card h3 {
-    margin-top: 10px;
-    font-weight: 600;
-    color: #0a4da2;
+    margin: 20px 0 10px;
+    color: #0b5ed7;
+}
+.card p {
+    padding: 0 20px 20px 20px;
+    font-size: 16px;
+    color: #555;
 }
 
-/* CONTACT */
-.contact-center { text-align: center; }
-.contact-center p { margin-top: 12px; }
-.contact-center i { color: #0a4da2; margin-right: 10px; }
-.contact-center .btn-secondary {
-    margin-top: 24px;
-    padding: 12px 30px;
-    background-color: #0a4da2;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    transition: background 0.3s;
+/* CONTACT SECTION */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
-.contact-center .btn-secondary:hover { background-color: #083f82; }
+.contact-info i {
+    color: #0b5ed7;
+    margin-right: 10px;
+}
+.contact-info a.btn {
+    width: fit-content;
+}
 
 /* FOOTER */
-footer { background-color: #0a4da2; color: white; text-align: center; padding: 24px; font-size: 14px; }
+footer {
+    background-color: #0b5ed7;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 14px;
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    section { padding: 60px 20px; }
-    .hero h1 { font-size: 36px; }
-    .hero p { font-size: 18px; }
-    .hero-text { padding: 20px 25px; }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav {
+        margin-top: 10px;
+    }
+    .hero h1 {
+        font-size: 38px;
+    }
+    .hero p {
+        font-size: 18px;
+    }
+    .card img {
+        height: 200px;
+    }
 }
 </style>
 </head>
-
 <body>
 
 <header>
-    <h1>GlobalMed Trade</h1>
+    <h2>GlobalMed Trade</h2>
     <nav>
         <a href="#about">About</a>
         <a href="#products">Products</a>
-        <a href="#compliance">Compliance</a>
-        <a href="#logistics">Logistics</a>
+        <a href="#trade">Global Trade</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-text">
-        <h1>Structured International Medical Trade Solutions</h1>
-        <p>GlobalMed Trade delivers compliance‑aligned medical equipment distribution and institutional logistics worldwide.</p>
-        <a href="#contact" class="btn-primary">Request Inquiry</a>
-    </div>
+    <h1>International Medical Equipment Trading Company</h1>
+    <p>Supplying certified medical equipment and hospital supplies to healthcare providers worldwide.</p>
+    <a href="#contact" class="btn">Request a Quote</a>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
     <h2 class="section-title">About Us</h2>
-    <p>GlobalMed Trade partners with healthcare institutions for compliant, long‑term medical equipment deployment and ongoing support across regulated markets worldwide.</p>
+    <p>GlobalMed Trade is an international medical equipment trading company specializing in sourcing, exporting, and distributing advanced medical devices and hospital supplies. We connect manufacturers with healthcare providers across global markets.</p>
 </section>
 
+<!-- PRODUCTS -->
 <section id="products">
     <h2 class="section-title">Product Categories</h2>
     <div class="grid-cards">
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=400&q=80" alt="Diagnostic & Monitoring Systems">
+            <img src="https://picsum.photos/id/1025/400/240" alt="Diagnostic & Monitoring Systems">
             <h3>Diagnostic & Monitoring Systems</h3>
             <p>High‑precision imaging and patient monitoring systems for clinical environments.</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1580281658625-0f5f1f73e9cf?auto=format&fit=crop&w=400&q=80" alt="Clinical Tools & Instruments">
+            <img src="https://picsum.photos/id/1044/400/240" alt="Clinical Tools & Instruments">
             <h3>Clinical Tools & Instruments</h3>
             <p>Professional surgical instruments and procedural devices with regulatory certification.</p>
         </div>
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=400&q=80" alt="Hospital & Support Supplies">
+            <img src="https://picsum.photos/id/1059/400/240" alt="Hospital & Support Supplies">
             <h3>Hospital & Support Supplies</h3>
             <p>Consumables, PPE, and support devices tailored to healthcare facility needs.</p>
         </div>
     </div>
 </section>
 
-<section id="compliance">
-    <h2 class="section-title">Compliance</h2>
-    <p>All products distributed comply with FDA, CE, and other international medical standards, ensuring safe and traceable deployment pathways.</p>
+<!-- GLOBAL TRADE -->
+<section id="trade">
+    <h2 class="section-title">Global Trade Network</h2>
+    <p>We operate across Asia, Europe, the Middle East, Africa, and the Americas, ensuring compliance with international medical standards and regulations.</p>
 </section>
 
-<section id="logistics">
-    <h2 class="section-title">Global Logistics</h2>
-    <p>We coordinate cross‑border documentation, fulfillment, and supply chain operations to meet institutional requirements.</p>
-</section>
-
+<!-- CONTACT -->
 <section id="contact">
     <h2 class="section-title">Contact Us</h2>
-    <div class="contact-center">
+    <div class="contact-info">
         <p><i class="fas fa-envelope"></i> info@globalmedtrade.com</p>
-        <p><i class="fas fa-phone"></i> +1 (000) 123‑4567</p>
-        <p><i class="fas fa-map-marker-alt"></i> Global Office, Worldwide</p>
-        <a href="mailto:info@globalmedtrade.com" class="btn-secondary">Email Inquiry</a>
+        <p><i class="fas fa-phone"></i> +1 (000) 123-4567</p>
+        <p><i class="fas fa-map-marker-alt"></i> International Trade Center, Global City</p>
+        <a href="mailto:info@globalmedtrade.com" class="btn">Email Us Now</a>
     </div>
 </section>
 
 <footer>
-    © 2026 GlobalMed Trade. All Rights Reserved.
+    <p>© 2026 GlobalMed Trade. All Rights Reserved.</p>
 </footer>
-
-<!-- Scroll Animation -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting) {
-                entry.target.classList.add("show");
-            }
-        });
-    }, { threshold: 0.2 });
-    sections.forEach(section => observer.observe(section));
-});
-</script>
 
 </body>
 </html>
