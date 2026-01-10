@@ -243,9 +243,10 @@ footer {
 }
 /* ===== HAMBURGER MENU ===== */
 .hamburger {
-    display: none;             /* hide on desktop */
+    display: none;
     flex-direction: column;
     cursor: pointer;
+    gap: 5px;
     width: 28px;
     height: 22px;
     justify-content: space-between;
@@ -257,89 +258,50 @@ footer {
     width: 100%;
     background: white;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 
 @media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
     nav {
         position: fixed;
         top: 0;
         right: -100%;
         height: 100vh;
-        width: 100%;           /* make it full width */
+        width: 100%;
         background-color: #0a4da2;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding-top: 60px;     /* space for header */
+        padding-top: 60px;
         transition: right 0.3s ease;
         z-index: 9999;
     }
 
+    nav.show {
+        right: 0;
+    }
+
     nav a {
-        margin: 15px 0;        /* evenly spaced */
+        margin: 15px 0;
         font-size: 22px;
         font-weight: 600;
         color: white;
         text-decoration: none;
+        transition: color 0.3s;
     }
 
     nav a:hover {
-        color: #ffd600;       /* hover color */
-    }
-
-    nav.show {
-        right: 0;
-    }
-
-    .hamburger {
-        display: flex;
+        color: #ffd600;
     }
 
     header {
         justify-content: space-between;
-        padding: 18px 20px;    /* smaller padding for mobile */
-    }
-}
-/* HAMBURGER MENU */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: white;
-    transition: all 0.3s;
-}
-
-/* Show hamburger on small screens */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-    nav {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: #0a4da2;
-        width: 200px;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 20px 0;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    }
-    nav.show {
-        transform: translateX(0);
-    }
-    nav a {
-        color: white;
-        font-size: 18px;
+        padding: 18px 20px; /* smaller padding for mobile */
     }
 }
 
@@ -482,29 +444,22 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(section => observer.observe(section));
 </script>
 <script>
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
-
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-});
-</script>
-    <script>
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('nav');
 
+// Toggle menu
 hamburger.addEventListener('click', () => {
-    nav.classList.toggle('show');  // open/close menu
+    nav.classList.toggle('show');
 });
 
 // Close menu when a link is clicked
 const navLinks = document.querySelectorAll('nav a');
-
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        nav.classList.remove('show');  // close menu
+        nav.classList.remove('show');
     });
 });
 </script>
+
 </body>
 </html>
