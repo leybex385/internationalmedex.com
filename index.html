@@ -108,22 +108,15 @@ h2.section-title { font-size: 32px; color: #0a4da2; margin-bottom: 28px; font-we
 
 .contact-center i { color: #0a4da2; margin-right: 10px; }
 .contact-center .btn-secondary {
-    padding: 14px 36px;
-    font-size: 17px;
-    font-weight: 600;
-    margin-top: 25px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    
-    /* Fix link colors */
-    color: white;            /* text color */
-    text-decoration: none;   /* remove underline */
-}
-
-.contact-center .btn-secondary:visited,
-.contact-center .btn-secondary:active,
-.contact-center .btn-secondary:focus {
-    color: white;            /* keep white on click, visited, or focus */
+    display: inline-block; /* or block if you want full width */
+    margin-top: 40px;      /* space from the text above */
+    padding: 12px 30px;
+    background-color: #0a4da2;
+    color: white;
     text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s;
 }
 
 .contact-center .btn-secondary:hover { background-color: #083f82; }
