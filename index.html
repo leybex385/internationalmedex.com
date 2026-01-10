@@ -301,28 +301,66 @@ footer {
         padding: 18px 20px;    /* smaller padding for mobile */
     }
 }
+/* HAMBURGER MENU */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    transition: all 0.3s;
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #0a4da2;
+        width: 200px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+    nav.show {
+        transform: translateX(0);
+    }
+    nav a {
+        color: white;
+        font-size: 18px;
+    }
+}
 
 </style>
 </head>
 <body>
 
 <header>
-  <h1>GlobalMed Trade</h1>
-
-  <!-- Hamburger button -->
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <nav id="nav-menu">
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#compliance">Compliance</a>
-      <a href="#logistics">Logistics</a>
-      <a href="#contact">Contact</a>
-  </nav>
+    <h1>GlobalMed Trade</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#logistics">Logistics</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </header>
 
 <!-- HERO -->
@@ -449,6 +487,23 @@ const navMenu = document.getElementById('nav-menu');
 
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('show');
+});
+</script>
+    <script>
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+    nav.classList.toggle('show');  // open/close menu
+});
+
+// Close menu when a link is clicked
+const navLinks = document.querySelectorAll('nav a');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('show');  // close menu
+    });
 });
 </script>
 </body>
