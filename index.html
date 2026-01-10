@@ -208,7 +208,40 @@ footer {
     .hero h1 { font-size: 36px; }
     .hero p { font-size: 18px; }
     .hero-text { padding: 20px 25px; }
+}/* CTA Section with video background */
+.cta-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px; /* adjust height as needed */
 }
+
+.cta-section .cta-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.cta-section .cta-content {
+    position: relative;
+    z-index: 1; /* text stays on top of video */
+    max-width: 800px;
+}
+
+.cta-section .btn-primary {
+    margin-top: 20px;
+}
+
 </style>
 </head>
 <body>
@@ -311,18 +344,18 @@ footer {
     <h2 class="section-title">Global Logistics</h2>
     <p>From regulatory documentation to global shipping and delivery, we handle the complexities of cross‑border logistics so your medical supplies arrive on time, intact, and ready to deploy.</p>
 </section>
-<section id="cta" style="background-color:#0a4da2; color:white; text-align:center; padding:80px 20px;">
-    <h2>Ready to Streamline Your Medical Supply?</h2>
-    <p>Contact us today to learn how GlobalMed Trade can optimize your operations.</p>
-    <a href="#contact" class="btn-primary">Request Inquiry</a>
-</section>
-<section id="contact">
-    <h2 class="section-title">Contact Us</h2>
-    <div class="contact-center">
-        <p><i class="fas fa-envelope"></i> info@globalmedtrade.com</p>
-        <p><i class="fas fa-phone"></i> +1 (000) 123‑4567</p>
-        <p><i class="fas fa-map-marker-alt"></i> Global Office, Worldwide</p>
-        <a href="mailto:info@globalmedtrade.com" class="btn-secondary">Email Inquiry</a>
+<section id="cta" class="cta-section">
+    <!-- Video background -->
+    <video autoplay muted loop playsinline class="cta-video">
+        <source src="videos/logistics.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Text on top -->
+    <div class="cta-content">
+        <h2>Ready to Streamline Your Medical Supply?</h2>
+        <p>Contact us today to learn how GlobalMed Trade can optimize your operations.</p>
+        <a href="#contact" class="btn-primary">Request Inquiry</a>
     </div>
 </section>
 
